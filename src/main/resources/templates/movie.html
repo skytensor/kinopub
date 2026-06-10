@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${movie.getTitle()}">Movie</title>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=bookmark_add"
+    />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="topbar">
+    <a th:href="@{/}" class="logo-link"><h1 class="logo">KINOPUB</h1></a>
+
+    <ul class="header_links">
+        <li>ФИЛЬМЫ</li>
+        <li>СЕРИАЛЫ</li>
+        <li>СПОРТ</li>
+        <li>ТЕЛЕКАНАЛЫ</li>
+        <li>ПОДПИСКИ</li>
+    </ul>
+
+    <form class="search">
+        <input type="text" placeholder="Поиск..." />
+    </form>
+
+    <a href="login.html" class="login-link">ВОЙТИ</a>
+</div>
+
+<div class="hero" th:style="|background-image: url('${movie.getBackdropUrl}');|">
+    <div class="hero-bg"></div>
+    <div class="overlay"></div>
+
+    <div class="content">
+        <img
+                class="poster"
+                th:src="${movie.getPosterUrl()}"
+                alt="Постер"
+        />
+
+        <div class="movie-info">
+            <h1 th:text="${movie.getTitle()} + ' (' + ${movie.getYear()} + ')'">Интерстеллар (2014)</h1>
+            <p th:text="${movie.getDescription()}"></p>
+            <div class="movie-info-buttons">
+                <button type="button" class="button">Смотреть фильм</button>
+                <button type="button" class="icon-button">
+                    <span class="material-symbols-outlined"> bookmark_add </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="movie-fullinfo">
+    <div class="movie-left">
+        <img
+                th:src="${movie.getTrailerUrl()}"
+                alt="Трейлер"
+        />
+    </div>
+
+    <div class="movie-center">
+        <h2>О фильме</h2>
+
+        <div class="movie-main">
+            <div class="movie-table">
+                <p class="movie-col">Год производства</p>
+                <p class="movie-row" th:text="${movie.getYear()}"></p>
+
+                <p class="movie-col">Страна</p>
+                <p class="movie-row" th:text="${movie.getCountry()}"></p>
+
+                <p class="movie-col">Жанр</p>
+                <p class="movie-row" th:text="${movie.getGenre()}"></p>
+
+                <p class="movie-col">Слоган</p>
+                <p class="movie-row" th:text="${movie.getTagline()}"></p>
+
+                <p class="movie-col">Режиссер</p>
+                <p class="movie-row" th:text="${movie.getDirector()}"></p>
+
+                <p class="movie-col">Сценарий</p>
+                <p class="movie-row" th:text="${movie.getScreenplay()}"></p>
+
+                <p class="movie-col">Продюсер</p>
+                <p class="movie-row" th:text="${movie.getProducer()}"></p>
+
+                <p class="movie-col">Оператор</p>
+                <p class="movie-row" th:text="${movie.getCinematographer()}"></p>
+
+                <p class="movie-col">Композитор</p>
+                <p class="movie-row" th:text="${movie.getComposer()}"></p>
+
+                <p class="movie-col">Художник</p>
+                <p class="movie-row" th:text="${movie.getProductionDesigner()}"></p>
+
+                <p class="movie-col">Монтаж</p>
+                <p class="movie-row" th:text="${movie.getEditor()}"></p>
+
+                <p class="movie-col">Бюджет</p>
+                <p class="movie-row" th:text="'$' + ${movie.getBudget()}"></p>
+
+                <p class="movie-col">Сборы в США</p>
+                <p class="movie-row" th:text="'$' + ${movie.getUsaBoxOffice()}"></p>
+
+                <p class="movie-col">Возраст</p>
+                <p class="movie-row" th:text="${movie.getAgeRating()}"></p>
+
+                <p class="movie-col">Время</p>
+                <p class="movie-row" th:text="${movie.getRuntime()}"></p>
+            </div>
+
+            <div class="movie-right">
+                <p><b>В главных ролях</b></p>
+                <p>Мэттью Макконахи</p>
+                <p>Энн Хэтэуэй</p>
+                <p>Джессика Честейн</p>
+                <p>Маккензи Фой</p>
+                <p>Майкл Кейн</p>
+                <p>Дэвид Джеси</p>
+                <p>Уэс Бентли</p>
+                <p>Кейси Аффлек</p>
+                <p>Джон Литгоу</p>
+                <p>Мэтт Дэймон</p>
+                <p class="others-link">44 актера</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

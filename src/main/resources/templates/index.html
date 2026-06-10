@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KINO1</title>
+  <link rel="stylesheet" th:href="@{css/styles.css}" />
+</head>
+<body>
+<div class="topbar">
+  <a th:href="@{/}" class="logo-link"><h1 class="logo">KINOPUB</h1></a>
+
+  <ul class="header_links">
+    <li>ФИЛЬМЫ</li>
+    <li>СЕРИАЛЫ</li>
+    <li>СПОРТ</li>
+    <li>ТЕЛЕКАНАЛЫ</li>
+    <li>ПОДПИСКИ</li>
+  </ul>
+
+  <form class="search">
+    <input type="text" placeholder="Поиск..." />
+  </form>
+
+  <a href="login.html" class="login-link">ВОЙТИ</a>
+</div>
+
+<div class="main">
+  <h1>Новые Фильмы</h1>
+
+  <div class="movie_cards">
+    <div th:each="movie : ${movies}" class="movie_card">
+      <a th:href="@{/movies/{slug}(slug=${movie.slug})}">
+        <img
+                th:src="${movie.getPosterUrl()}"
+                alt="Постер"
+        />
+      </a>
+
+      <div class="movie_info">
+        <h3 class="card_title" th:text="${movie.getTitle()}"></h3>
+        <p class="card_description" th:text="${movie.getYear()} + ' • ' + ${movie.getGenre()}"></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

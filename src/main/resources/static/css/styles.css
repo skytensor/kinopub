@@ -1,0 +1,388 @@
+@font-face {
+    font-family: "GoogleSans";
+    src: url('../fonts/GoogleSans.ttf');
+}
+
+body {
+    margin: 60px 0 0;
+
+    background-color: #181c1d;
+    color: #fbf7fb;
+
+    font-family: "GoogleSans";
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 10px 20px;
+
+    background-color: #181c1d;
+}
+
+.login-link {
+    color: #fbf7fb;
+
+    font-size: larger;
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    color: #4268e6;
+    margin: 0;
+}
+
+.search {
+    margin-left: auto;
+    display: flex;
+}
+
+.search input {
+    width: 250px;
+    padding: 10px 16px;
+
+    color: #fbf7fb;
+    background-color: #181c1d;
+
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    border-radius: 20px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+.search input::placeholder {
+    color: rgba(251, 247, 251, 0.5);
+}
+
+.search input:focus {
+    border-color: #4268e6;
+    box-shadow: 0 0 10px rgba(95, 158, 160, 0.4);
+}
+
+.button {
+    font-family: "GoogleSans";
+
+    transition: transform 0.2s;
+
+    width: 200px;
+    height: 50px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    background-color: #4268e6;
+
+    color: #fbf7fb;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.icon-button {
+    transition: transform 0.2s;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    background-color: #181c1d;
+}
+
+.icon-button:hover {
+    transform: scale(1.05);
+}
+
+.material-symbols-outlined {
+    color: #fbf7fb;
+}
+
+.header_links {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    font-size: larger;
+    font-weight: bold;
+}
+
+.main {
+    padding: 5px 20px;
+}
+
+.movie_cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.movie_card {
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.movie_card img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.movie_card:hover {
+    transform: scale(1.05);
+}
+
+.card_title {
+    font-size: 18px;
+    margin: 8px 0 2px;
+}
+
+.card_description {
+    font-size: 14px;
+    margin: 0;
+    color: #bdbdbd;
+    font-weight: lighter;
+}
+
+.hero {
+    margin-top: 60px;
+
+    position: relative;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background:
+            linear-gradient(
+                    to right,
+                    rgba(24, 28, 29, 1) 0%,
+                    rgba(24, 28, 29, 0.9) 15%,
+                    rgba(24, 28, 29, 0.6) 30%,
+                    rgba(0, 0, 0, 0) 100%
+            ),
+            linear-gradient(
+                    to top,
+                    rgba(24, 28, 29, 1) 0%,
+                    rgba(24, 28, 29, 0.8) 30%,
+                    rgba(24, 28, 29, 0) 100%
+            );
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    z-index: 3;
+
+    height: 100%;
+    padding: 220px 80px;
+}
+
+.poster {
+    width: 250px;
+    height: 360px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.movie-info {
+    max-width: 600px;
+}
+
+.movie-info h1 {
+    font-size: 54px;
+    margin: 0 0 20px;
+}
+
+.movie-info p {
+    font-size: 22px;
+}
+
+.movie-info-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.movie-fullinfo {
+    padding: 0 80px;
+    display: flex;
+
+    gap: 37px;
+}
+
+.movie-left img {
+    width: 250px;
+    border-radius: 16px;
+}
+
+.movie-center h2 {
+    margin: 0;
+}
+
+.movie-main {
+    display: flex;
+    gap: 80px;
+}
+
+.movie-table {
+    width: 750px;
+    display: grid;
+    grid-template-columns: 220px auto;
+    column-gap: 40px;
+    row-gap: 12px;
+}
+
+.movie-right {
+    margin-left: auto;
+}
+
+.movie-col {
+    color: #bdbdbd;
+}
+
+.others-link {
+    color: #4268e6;
+}
+
+.login-bg {
+    margin: 0;
+    padding: 0;
+
+    background-image: url("https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/d19d2ddd-210f-4c38-b6ee-f0347f394373/orig");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 360px;
+    background-color: #181c1d;
+
+    text-align: center;
+    padding: 24px;
+    gap: 16px;
+
+    border-radius: 24px;
+}
+
+.login-text {
+    line-height: 16px;
+}
+
+.login-input {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    gap: 12px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.login-inputtext {
+    height: 48px;
+
+    color: #fbf7fb;
+    background-color: #181c1d;
+
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    border-radius: 20px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+
+    text-indent: 16px;
+}
+
+.login-button {
+    height: 56px;
+
+    background-color: #fbf7fb;
+
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    border-radius: 20px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.register-button {
+    height: 56px;
+
+    background-color: #4268e6;
+
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    color: #fbf7fb;
+    border-radius: 20px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Error Page */
+
+.error {
+    display: flex;
+
+    text-align: center;
+}
+
+.error-h1 {
+    flex: 1;
+
+    font-size: 32px;
+    margin: 0;
+}
