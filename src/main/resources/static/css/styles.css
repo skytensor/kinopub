@@ -9,7 +9,7 @@ body {
     background-color: #181c1d;
     color: #fbf7fb;
 
-    font-family: "GoogleSans";
+    font-family: "GoogleSans", serif;
 }
 
 .topbar {
@@ -78,8 +78,6 @@ body {
 }
 
 .button {
-    font-family: "GoogleSans";
-
     transition: transform 0.2s;
 
     width: 200px;
@@ -350,6 +348,7 @@ body {
     border-radius: 20px;
 
     outline: none;
+    cursor: pointer;
 
     font-family: inherit;
     font-size: 16px;
@@ -366,6 +365,10 @@ body {
     border-radius: 20px;
 
     outline: none;
+
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
 
     font-family: inherit;
     font-size: 16px;
@@ -385,4 +388,148 @@ body {
 
     font-size: 32px;
     margin: 0;
+}
+
+/* Profile */
+
+.profile_hero {
+    background-image: url("https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/d19d2ddd-210f-4c38-b6ee-f0347f394373/orig");
+    position: relative;
+    height: 480px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.profile-avatar {
+    width: 160px;
+
+    border-radius: 999px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.profile-main-info {
+    line-height: 24px;
+}
+
+.profile-info h1 {
+    font-size: 54px;
+    margin: 0 0 20px;
+}
+
+.profile-email {
+    font-size: 18px;
+    color: #bdbdbd;
+}
+
+.profile-stats {
+    display: flex;
+    flex-direction: row;
+
+    gap: 520px;
+
+    align-items: center;
+}
+
+.profile-stats-number {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-stats-btext {
+    white-space: nowrap;
+    margin: 0;
+
+    font-size: 16px;
+    color: #bdbdbd;
+}
+
+.profile-stats-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.profile-stats-left {
+    display: flex;
+
+    gap: 100px;
+}
+
+.profile-icon-button {
+    transition: transform 0.2s;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(251, 247, 251, 0.2);
+    background-color: #fbf7fb;
+    color: #181c1d;
+}
+
+.profile-icon-button:hover {
+    transform: scale(1.05);
+
+    background-color: #bdbdbd;
+}
+
+.profile-icon-button span {
+    color: #181c1d;
+}
+
+.profile-main {
+    padding: 0 80px;
+}
+
+.profile-views {
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+.movies-scroll {
+    display: flex;
+    gap: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    margin: -10px;
+    padding: 10px;
+}
+
+.movies-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.movies-scroll {
+    scrollbar-width: none;
+}
+
+.profile_movie_card {
+    transition: transform 0.2s;
+    cursor: pointer;
+
+    flex: 0 0 auto;
+    width: 180px;
+}
+
+.profile_movie_card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.profile_movie_card:hover {
+    transform: scale(1.05);
 }

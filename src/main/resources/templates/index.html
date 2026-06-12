@@ -22,7 +22,13 @@
     <input type="text" placeholder="Поиск..." />
   </form>
 
-  <a href="login.html" class="login-link">ВОЙТИ</a>
+  <div th:if="${#authorization.expression('isAuthenticated()')}">
+    <a th:text="${#authentication.name}" th:href="@{/profile}" class="login-link"></a>
+  </div>
+
+  <div th:unless="${#authorization.expression('isAuthenticated()')}">
+    <a th:href="@{/login}" class="login-link">ВОЙТИ</a>
+  </div>
 </div>
 
 <div class="main">

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Регистрация</title>
+
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="login-bg">
+<div class="login-container">
+  <div class="login-card">
+    <a th:href="@{/}" class="logo-link"><h1 class="logo">KINOPUB</h1></a>
+
+    <div class="login-input">
+      <div class="login-text">
+        <h2>Зарегистрироваться</h2>
+        <p>Введите данные для регистрации</p>
+      </div>
+
+      <form action="/register" method="post" class="login-form">
+        <input type="text" name="login" placeholder="Логин" class="login-inputtext" />
+        <input type="email" name="email" placeholder="Почта" class="login-inputtext" />
+        <input
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                class="login-inputtext"
+        />
+        <input
+                type="password"
+                placeholder="Повторить пароль"
+                class="login-inputtext"
+        />
+        <button type="submit" class="login-button">Зарегистрироваться</button>
+      </form>
+      <a class="register-button" th:href="@{/login}">Войти</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
