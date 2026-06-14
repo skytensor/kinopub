@@ -144,8 +144,9 @@ body {
 
 .movie_card img {
     width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
     border-radius: 12px;
-    display: block;
 }
 
 .movie_card:hover {
@@ -532,4 +533,67 @@ body {
 
 .profile_movie_card:hover {
     transform: scale(1.05);
+}
+
+/* Admin */
+
+.admin-div {
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+.admin-table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.admin-table td {
+    height: 64px;
+    border: 2px solid #4268e6;
+    text-align: center;
+}
+
+.admin-edit-table {
+    border-collapse: collapse;
+    width: 720px;
+}
+
+.admin-edit-table td {
+    border: 2px solid #4268e6;
+    padding: 12px;
+}
+
+.admin-edit-table input {
+    background-color: transparent;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.admin-edit-table input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.admin-edit-button {
+    background-color: transparent;
+    color: limegreen;
+    border: none;
+
+    width: 100%;
+}
+
+.admin-delete-button {
+    background-color: transparent;
+    color: red;
+    border: #4268e6 solid 2px;
+
+    width: 720px;
+    height: 60px;
 }

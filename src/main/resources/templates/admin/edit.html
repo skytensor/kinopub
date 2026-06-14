@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Редактировать</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="admin-div">
+<form method="post" th:action="@{/admin/movies/edit/{id}(id=${movie.id})}" class="admin-form">
+    <table class="admin-edit-table">
+        <tr>
+            <td>Название</td>
+            <td>
+                <input type="text" name="title" th:value="${movie.getTitle()}" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Slug</td>
+            <td><input type="text" name="slug" th:value="${movie.getSlug()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Описание</td>
+            <td><input type="text" name="description" th:value="${movie.getDescription()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Постер URL</td>
+            <td><input type="text" name="posterUrl" th:value="${movie.getPosterUrl()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Задний фон URL</td>
+            <td><input type="text" name="backdropUrl" th:value="${movie.getBackdropUrl()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Трейлер URL</td>
+            <td><input type="text" name="trailerUrl" th:value="${movie.getTrailerUrl()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Год производства</td>
+            <td><input type="text" name="year" th:value="${movie.getYear()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Страна</td>
+            <td><input type="text" name="country" th:value="${movie.getCountry()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Жанр</td>
+            <td><input type="text" name="genre" th:value="${movie.getGenre()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Слоган</td>
+            <td><input type="text" name="tagline" th:value="${movie.getTagline()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Режиссер</td>
+            <td><input type="text" name="director" th:value="${movie.getDirector()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Сценарий</td>
+            <td><input type="text" name="screenplay" th:value="${movie.getScreenplay()}"/></td>
+        </tr>
+
+        <tr>
+            <td>Продюсер</td>
+            <td><input type="text" name="producer" th:value="${movie.getProducer()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Оператор</td>
+            <td><input type="text" name="cinematographer" th:value="${movie.getCinematographer()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Композитор</td>
+            <td><input type="text" name="composer" th:value="${movie.getComposer()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Художник</td>
+            <td><input type="text" name="productionDesigner" th:value="${movie.getProductionDesigner()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Монтаж</td>
+            <td><input type="text" name="editor" th:value="${movie.getEditor()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Бюджет</td>
+            <td><input type="text" name="budget" th:value="${movie.getBudget()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Сборы в США</td>
+            <td><input type="text" name="usaBoxOffice" th:value="${movie.getUsaBoxOffice()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Возраст</td>
+            <td><input type="text" name="ageRating" th:value="${movie.getAgeRating()}" /></td>
+        </tr>
+
+        <tr>
+            <td>Время (в минутах)</td>
+            <td><input type="text" name="runtime" th:value="${movie.getRuntime()}" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><button type="submit" class="admin-edit-button">Изменить</button></td>
+        </tr>
+    </table>
+</form>
+
+<form method="post" th:action="@{/admin/movies/delete/{id}(id=${movie.id})}" onclick="return confirm('Удалить фильм?')">
+    <button type="submit" class="admin-delete-button">
+        Удалить
+    </button>
+</form>
+</body>
+</html>

@@ -3,31 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<table>
-  <tr th:each="movie : ${movies}">
-    <td th:text="${movie.title}"></td>
+<div class="admin-div">
+  <table class="admin-table">
+    <tr><td colspan="2"><a th:href="@{/admin/movies/new}" class="login-link">Добавить фильм</a></td></tr>
 
-    <td>
-      <a th:href="@{/admin/movies/edit/{id}(id=${movie.id})}">
-        Изменить
-      </a>
-    </td>
+    <tr th:each="movie : ${movies}">
+      <td th:text="${movie.title}" class="admin-table-title"></td>
 
-    <td>
-      <form th:action="@{/admin/movies/delete/{id}(id=${movie.id})}"
-            method="post">
-
-        <button>Удалить</button>
-
-      </form>
-    </td>
-  </tr>
-</table>
-
-<a href="/admin/movies/new">
-  Добавить фильм
-</a>
+      <td class="admin-table-edit">
+        <a th:href="@{/admin/movies/edit/{id}(id=${movie.id})}" class="login-link">
+          Изменить
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
 </body>
 </html>

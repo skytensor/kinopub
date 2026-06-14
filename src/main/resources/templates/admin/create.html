@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Добавить</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="admin-div">
+<form method="post" th:action="@{/admin/movies/new}" class="admin-form">
+    <table class="admin-edit-table">
+        <tr>
+            <td>Название</td>
+            <td>
+                <input type="text" name="title" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Slug</td>
+            <td><input type="text" name="slug" /></td>
+        </tr>
+
+        <tr>
+            <td>Описание</td>
+            <td><input type="text" name="description" /></td>
+        </tr>
+
+        <tr>
+            <td>Постер URL</td>
+            <td><input type="text" name="posterUrl" /></td>
+        </tr>
+
+        <tr>
+            <td>Задний фон URL</td>
+            <td><input type="text" name="backdropUrl" /></td>
+        </tr>
+
+        <tr>
+            <td>Трейлер URL</td>
+            <td><input type="text" name="trailerUrl" /></td>
+        </tr>
+
+        <tr>
+            <td>Год производства</td>
+            <td><input type="text" name="year" /></td>
+        </tr>
+
+        <tr>
+            <td>Страна</td>
+            <td><input type="text" name="country" /></td>
+        </tr>
+
+        <tr>
+            <td>Жанр</td>
+            <td><input type="text" name="genre" /></td>
+        </tr>
+
+        <tr>
+            <td>Слоган</td>
+            <td><input type="text" name="tagline" /></td>
+        </tr>
+
+        <tr>
+            <td>Режиссер</td>
+            <td><input type="text" name="director" /></td>
+        </tr>
+
+        <tr>
+            <td>Сценарий</td>
+            <td><input type="text" name="screenplay" /></td>
+        </tr>
+
+        <tr>
+            <td>Продюсер</td>
+            <td><input type="text" name="producer" /></td>
+        </tr>
+
+        <tr>
+            <td>Оператор</td>
+            <td><input type="text" name="cinematographer" /></td>
+        </tr>
+
+        <tr>
+            <td>Композитор</td>
+            <td><input type="text" name="composer" /></td>
+        </tr>
+
+        <tr>
+            <td>Художник</td>
+            <td><input type="text" name="productionDesigner" /></td>
+        </tr>
+
+        <tr>
+            <td>Монтаж</td>
+            <td><input type="text" name="editor" /></td>
+        </tr>
+
+        <tr>
+            <td>Бюджет</td>
+            <td><input type="text" name="budget" /></td>
+        </tr>
+
+        <tr>
+            <td>Сборы в США</td>
+            <td><input type="text" name="usaBoxOffice" /></td>
+        </tr>
+
+        <tr>
+            <td>Возраст</td>
+            <td><input type="text" name="ageRating" /></td>
+        </tr>
+
+        <tr>
+            <td>Время (в минутах)</td>
+            <td><input type="text" name="runtime" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><button type="submit" class="admin-edit-button">Добавить</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

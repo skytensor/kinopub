@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+
 @Entity
 public class Movie {
     @Id
@@ -97,6 +100,13 @@ public class Movie {
         return tagline;
     }
 
+    public String getFormattedTagline() {
+        if (tagline == null) {
+            return "—";
+        }
+        return "«" + tagline + "»";
+    }
+
     public void setTagline(String tagline) {
         this.tagline = tagline;
     }
@@ -161,12 +171,30 @@ public class Movie {
         return budget;
     }
 
+    public String getFormattedBudget() {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator(' ');
+
+        DecimalFormat formatter = new DecimalFormat("#,###", symbols);
+
+        return formatter.format(budget);
+    }
+
     public void setBudget(long budget) {
         this.budget = budget;
     }
 
     public long getUsaBoxOffice() {
         return usaBoxOffice;
+    }
+
+    public String getFormattedUsaBoxOffice() {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator(' ');
+
+        DecimalFormat formatter = new DecimalFormat("#,###", symbols);
+
+        return formatter.format(usaBoxOffice);
     }
 
     public void setUsaBoxOffice(long usaBoxOffice) {
@@ -183,6 +211,13 @@ public class Movie {
 
     public int getRuntime() {
         return runtime;
+    }
+
+    public String getFormattedRuntime() {
+        int hours = runtime / 60;
+        int minutes = runtime % 60;
+
+        return hours + " ч " + minutes + " мин";
     }
 
     public void setRuntime(int runtime) {

@@ -82,7 +82,7 @@
                 <p class="movie-row" th:text="${movie.getGenre()}"></p>
 
                 <p class="movie-col">Слоган</p>
-                <p class="movie-row" th:text="${movie.getTagline()}"></p>
+                <p class="movie-row" th:text="${movie.getFormattedTagline()}"></p>
 
                 <p class="movie-col">Режиссер</p>
                 <p class="movie-row" th:text="${movie.getDirector()}"></p>
@@ -106,16 +106,16 @@
                 <p class="movie-row" th:text="${movie.getEditor()}"></p>
 
                 <p class="movie-col">Бюджет</p>
-                <p class="movie-row" th:text="'$' + ${movie.getBudget()}"></p>
+                <p class="movie-row" th:text="'$' + ${movie.getFormattedBudget()}"></p>
 
                 <p class="movie-col">Сборы в США</p>
-                <p class="movie-row" th:text="'$' + ${movie.getUsaBoxOffice()}"></p>
+                <p class="movie-row" th:text="'$' + ${movie.getFormattedUsaBoxOffice()}"></p>
 
                 <p class="movie-col">Возраст</p>
                 <p class="movie-row" th:text="${movie.getAgeRating()}"></p>
 
                 <p class="movie-col">Время</p>
-                <p class="movie-row" th:text="${movie.getRuntime()}"></p>
+                <p class="movie-row" th:text="${movie.getFormattedRuntime()}"></p>
             </div>
 
             <div class="movie-right">
