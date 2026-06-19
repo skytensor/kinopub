@@ -3,6 +3,7 @@ package com.project.code.controller;
 import com.project.code.model.Movie;
 import com.project.code.repository.MovieRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,6 +16,7 @@ public class MovieApiController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public Movie createMovie(@RequestBody Movie movie) {
 
         return movieRepository.save(movie);
@@ -22,6 +24,7 @@ public class MovieApiController {
     }
 
     @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{slug}")
     public String deleteMovie(@PathVariable String slug) {
         movieRepository.deleteBySlug(slug);

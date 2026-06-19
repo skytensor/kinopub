@@ -38,7 +38,7 @@ public class AuthController {
         user.setLogin(login);
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole("ADMIN");
+        user.setRole("USER");
 
         userRepository.save(user);
 

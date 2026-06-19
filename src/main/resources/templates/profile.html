@@ -11,29 +11,7 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<div class="topbar">
-    <a th:href="@{/}" class="logo-link"><h1 class="logo">KINOPUB</h1></a>
-
-    <ul class="header_links">
-        <li>ФИЛЬМЫ</li>
-        <li>СЕРИАЛЫ</li>
-        <li>СПОРТ</li>
-        <li>ТЕЛЕКАНАЛЫ</li>
-        <li>ПОДПИСКИ</li>
-    </ul>
-
-    <form class="search">
-        <input type="text" placeholder="Поиск..." />
-    </form>
-
-    <div th:if="${#authorization.expression('isAuthenticated()')}">
-        <a th:text="${#authentication.name}" th:href="@{/profile}" class="login-link"></a>
-    </div>
-
-    <div th:unless="${#authorization.expression('isAuthenticated()')}">
-        <a th:href="@{/login}" class="login-link">ВОЙТИ</a>
-    </div>
-</div>
+<div th:replace="~{fragments/topbar :: topbar}"></div>
 
 <div class="profile_hero">
     <div class="hero-bg"></div>
@@ -74,7 +52,7 @@
                     <button class="profile-icon-button">
                         <span class="material-symbols-outlined">edit</span>
                     </button>
-                    <form action="logout">
+                    <form th:action="@{/logout}" method="post">
                         <button class="profile-icon-button" type="submit">
                             <span class="material-symbols-outlined"> logout </span>
                         </button>

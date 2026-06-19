@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -15,36 +18,70 @@ public class Movie {
     private Long id;
 
     // Main
+    @NotBlank(message = "Title cannot be empty or blank")
     private String title;
+
     private String slug;
+
     private String description;
 
     // URL
+    @NotBlank(message = "PosterURL cannot be empty or blank")
     private String posterUrl;
+
     private String backdropUrl;
+
     private String trailerUrl;
 
+    @Positive(message = "Year cannot be negative or zero")
     private int year;
+
+    @NotBlank(message = "Country cannot be empty or blank")
     private String country;
+
+    @NotBlank(message = "Genre cannot be empty or blank")
     private String genre;
+
     private String tagline;
+
+    @NotBlank(message = "Director cannot be empty or blank")
     private String director;
+
+    @NotBlank(message = "Screenplay cannot be empty or blank")
     private String screenplay;
+
+    @NotBlank(message = "Producer cannot be empty or blank")
     private String producer;
+
+    @NotBlank(message = "Cinematographer cannot be empty or blank")
     private String cinematographer;
+
+    @NotBlank(message = "Composer cannot be empty or blank")
     private String composer;
+
+    @NotBlank(message = "Production Designer cannot be empty or blank")
     private String productionDesigner;
+
+    @NotBlank(message = "Editor cannot be empty or blank")
     private String editor;
+
+    @PositiveOrZero(message = "Budget cannot be negative")
     private long budget;
+
+    @PositiveOrZero(message = "USA Box Office cannot be negative")
     private long usaBoxOffice;
+
+    @NotBlank(message = "Age Rating cannot be empty or blank")
     private String ageRating;
+
+    @Positive(message = "Runtime cannot be negative or zero")
     private int runtime;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

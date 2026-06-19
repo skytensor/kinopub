@@ -11,31 +11,9 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<div class="topbar">
-    <a th:href="@{/}" class="logo-link"><h1 class="logo">KINOPUB</h1></a>
+<div th:replace="~{fragments/topbar :: topbar}"></div>
 
-    <ul class="header_links">
-        <li>ФИЛЬМЫ</li>
-        <li>СЕРИАЛЫ</li>
-        <li>СПОРТ</li>
-        <li>ТЕЛЕКАНАЛЫ</li>
-        <li>ПОДПИСКИ</li>
-    </ul>
-
-    <form class="search">
-        <input type="text" placeholder="Поиск..." />
-    </form>
-
-    <div th:if="${#authorization.expression('isAuthenticated()')}">
-        <a th:text="${#authentication.name}" th:href="@{/profile}" class="login-link"></a>
-    </div>
-
-    <div th:unless="${#authorization.expression('isAuthenticated()')}">
-        <a th:href="@{/login}" class="login-link">ВОЙТИ</a>
-    </div>
-</div>
-
-<div class="hero" th:style="|background-image: url('${movie.getBackdropUrl}');|">
+<div class="hero" th:style="|background-image: url('${movie.getBackdropUrl()}');|">
     <div class="hero-bg"></div>
     <div class="overlay"></div>
 

@@ -1,20 +1,26 @@
 package com.project.code.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
+    @Size(min = 4, max = 10, message = "Login must be greater or equal to 4 and less or equal to 10")
     @Column(unique = true)
     private String login;
 
+    @Email
     @Column(unique = true)
     private String email;
 
+    @Pattern(regexp = "^[a-zA-Z0-9]{8,20}$", message = "Password must be alphanumeric and 8-20 characters long")
     private String password;
 
     private String role;
