@@ -5,15 +5,15 @@
   <a th:href="@{/}" class="logo-link"><h1 class="logo">KINOPUB</h1></a>
 
   <ul class="header_links">
-    <li>ФИЛЬМЫ</li>
+    <li><a th:href="@{/movies}" class="topbar-link">ФИЛЬМЫ</a></li>
     <li>СЕРИАЛЫ</li>
     <li>СПОРТ</li>
     <li>ТЕЛЕКАНАЛЫ</li>
     <li>ПОДПИСКИ</li>
   </ul>
 
-  <form class="search">
-    <input type="text" placeholder="Поиск..." />
+  <form class="search" th:action="@{/search}" method="get">
+    <input type="text" name="query" placeholder="Поиск..." />
   </form>
 
   <div th:if="${#authorization.expression('isAuthenticated()')}">

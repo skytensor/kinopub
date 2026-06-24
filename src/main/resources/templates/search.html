@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KINO1</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward" />
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div th:replace="~{fragments/topbar :: topbar}"></div>
+<div class="main">
+
+  <h1 th:if="${query != null}">
+    Результаты поиска: <span th:text="${query}"></span>
+  </h1>
+
+  <div class="movie_cards">
+    <div th:each="movie : ${movies}" class="movie_card">
+      <a th:href="@{/movies/{slug}(slug=${movie.slug})}">
+        <img
+                th:src="${movie.getPosterUrl()}"
+                alt="Постер"
+        />
+      </a>
+
+      <div class="movie_info">
+        <h3 class="card_title" th:text="${movie.getTitle()}"></h3>
+        <p class="card_description" th:text="${movie.getYear()} + ' • ' + ${movie.getGenre()}"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+
+    <a th:if="${currentPage > 0}"
+       th:href="@{/search(page=${currentPage - 1}, query=${query})}">
+            <span class="material-symbols-outlined">
+                arrow_back
+            </span>
+    </a>
+
+    <a th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+       th:href="@{/search(page=${i}, query=${query})}"
+       th:text="${i + 1}"
+       th:classappend="${i == currentPage} ? 'active'">
+    </a>
+
+    <a th:if="${currentPage < totalPages - 1}"
+       th:href="@{/search(page=${currentPage + 1}, query=${query})}">
+            <span class="material-symbols-outlined">
+                arrow_forward
+            </span>
+    </a>
+
+  </div>
+
+</div>
+</body>
+</html>
