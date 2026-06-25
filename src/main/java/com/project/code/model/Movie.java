@@ -138,7 +138,7 @@ public class Movie {
     }
 
     public String getFormattedTagline() {
-        if (tagline == null) {
+        if (tagline == null || tagline.isBlank()) {
             return "—";
         }
         return "«" + tagline + "»";

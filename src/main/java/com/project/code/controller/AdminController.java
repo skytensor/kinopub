@@ -4,8 +4,10 @@ import com.project.code.dto.MovieForm;
 import com.project.code.mapper.MovieMapper;
 import com.project.code.model.Movie;
 import com.project.code.repository.MovieRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -31,7 +33,11 @@ public class AdminController {
     }
 
     @PostMapping("/movies/new")
-    public String create(MovieForm form) {
+    public String create(@Valid MovieForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/create";
+        }
+
         Movie movie = MovieMapper.toNewMovie(form);
         movieRepository.save(movie);
 

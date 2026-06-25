@@ -1,79 +1,204 @@
 package com.project.code.dto;
 
 public class MovieForm {
-    private final String title;
-    private final String slug;
-    private final String description;
-    private final String posterUrl;
-    private final String backdropUrl;
-    private final String trailerUrl;
-    private final int year;
-    private final String country;
-    private final String genre;
-    private final String tagline;
-    private final String director;
-    private final String screenplay;
-    private final String producer;
-    private final String cinematographer;
-    private final String composer;
-    private final String productionDesigner;
-    private final String editor;
-    private final long budget;
-    private final long usaBoxOffice;
-    private final String ageRating;
-    private final int runtime;
+    private String title;
+    private String slug;
+    private String description;
+    private String posterUrl;
+    private String backdropUrl;
+    private String trailerUrl;
+    private int year;
+    private String country;
+    private String genre;
+    private String tagline;
+    private String director;
+    private String screenplay;
+    private String producer;
+    private String cinematographer;
+    private String composer;
+    private String productionDesigner;
+    private String editor;
+    private long budget;
+    private long usaBoxOffice;
+    private String ageRating;
+    private int runtime;
 
-    private MovieForm(Builder b) {
-        this.title = b.title;
-        this.slug = b.slug;
-        this.description = b.description;
-        this.posterUrl = b.posterUrl;
-        this.backdropUrl = b.backdropUrl;
-        this.trailerUrl = b.trailerUrl;
-        this.year = b.year;
-        this.country = b.country;
-        this.genre = b.genre;
-        this.tagline = b.tagline;
-        this.director = b.director;
-        this.screenplay = b.screenplay;
-        this.producer = b.producer;
-        this.cinematographer = b.cinematographer;
-        this.composer = b.composer;
-        this.productionDesigner = b.productionDesigner;
-        this.editor = b.editor;
-        this.budget = b.budget;
-        this.usaBoxOffice = b.usaBoxOffice;
-        this.ageRating = b.ageRating;
-        this.runtime = b.runtime;
+    public MovieForm() {}
+
+    public String getTitle() {
+        return title;
     }
 
-    // геттеры — обязательны, без них Thymeleaf/Spring не сможет читать поля
-    public String getTitle() { return title; }
-    public String getSlug() { return slug; }
-    public String getDescription() { return description; }
-    public String getPosterUrl() { return posterUrl; }
-    public String getBackdropUrl() { return backdropUrl; }
-    public String getTrailerUrl() { return trailerUrl; }
-    public int getYear() { return year; }
-    public String getCountry() { return country; }
-    public String getGenre() { return genre; }
-    public String getTagline() { return tagline; }
-    public String getDirector() { return director; }
-    public String getScreenplay() { return screenplay; }
-    public String getProducer() { return producer; }
-    public String getCinematographer() { return cinematographer; }
-    public String getComposer() { return composer; }
-    public String getProductionDesigner() { return productionDesigner; }
-    public String getEditor() { return editor; }
-    public long getBudget() { return budget; }
-    public long getUsaBoxOffice() { return usaBoxOffice; }
-    public String getAgeRating() { return ageRating; }
-    public int getRuntime() { return runtime; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPosterUrl() {
+        return posterUrl;
+    }
+
+    public void setPosterUrl(String posterUrl) {
+        this.posterUrl = posterUrl;
+    }
+
+    public String getBackdropUrl() {
+        return backdropUrl;
+    }
+
+    public void setBackdropUrl(String backdropUrl) {
+        this.backdropUrl = backdropUrl;
+    }
+
+    public String getTrailerUrl() {
+        return trailerUrl;
+    }
+
+    public void setTrailerUrl(String trailerUrl) {
+        this.trailerUrl = trailerUrl;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getTagline() {
+        return tagline;
+    }
+
+    public void setTagline(String tagline) {
+        this.tagline = tagline;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getScreenplay() {
+        return screenplay;
+    }
+
+    public void setScreenplay(String screenplay) {
+        this.screenplay = screenplay;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
+    public String getCinematographer() {
+        return cinematographer;
+    }
+
+    public void setCinematographer(String cinematographer) {
+        this.cinematographer = cinematographer;
+    }
+
+    public String getComposer() {
+        return composer;
+    }
+
+    public void setComposer(String composer) {
+        this.composer = composer;
+    }
+
+    public String getProductionDesigner() {
+        return productionDesigner;
+    }
+
+    public void setProductionDesigner(String productionDesigner) {
+        this.productionDesigner = productionDesigner;
+    }
+
+    public String getEditor() {
+        return editor;
+    }
+
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
+
+    public long getBudget() {
+        return budget;
+    }
+
+    public void setBudget(long budget) {
+        this.budget = budget;
+    }
+
+    public long getUsaBoxOffice() {
+        return usaBoxOffice;
+    }
+
+    public void setUsaBoxOffice(long usaBoxOffice) {
+        this.usaBoxOffice = usaBoxOffice;
+    }
+
+    public String getAgeRating() {
+        return ageRating;
+    }
+
+    public void setAgeRating(String ageRating) {
+        this.ageRating = ageRating;
+    }
+
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
+    }
+
+    @SuppressWarnings("unused")
     public static Builder builder() {
         return new Builder();
     }
 
+    @SuppressWarnings("unused")
     public static class Builder {
         private String title;
         private String slug;
@@ -120,7 +245,30 @@ public class MovieForm {
         public Builder runtime(int runtime) { this.runtime = runtime; return this; }
 
         public MovieForm build() {
-            return new MovieForm(this);
+            MovieForm f = new MovieForm();
+            f.setTitle(this.title);
+            f.setSlug(this.slug);
+            f.setDescription(this.description);
+            f.setPosterUrl(this.posterUrl);
+            f.setBackdropUrl(this.backdropUrl);
+            f.setTrailerUrl(this.trailerUrl);
+            f.setYear(this.year);
+            f.setCountry(this.country);
+            f.setGenre(this.genre);
+            f.setTagline(this.tagline);
+            f.setDirector(this.director);
+            f.setScreenplay(this.screenplay);
+            f.setProducer(this.producer);
+            f.setCinematographer(this.cinematographer);
+            f.setComposer(this.composer);
+            f.setProductionDesigner(this.productionDesigner);
+            f.setEditor(this.editor);
+            f.setBudget(this.budget);
+            f.setUsaBoxOffice(this.usaBoxOffice);
+            f.setAgeRating(this.ageRating);
+            f.setRuntime(this.runtime);
+
+            return f;
         }
     }
 }

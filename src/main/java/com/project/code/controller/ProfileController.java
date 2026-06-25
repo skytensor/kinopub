@@ -11,16 +11,9 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String profile(Authentication authentication, Model model) {
-
-        if (authentication == null) {
-            return "redirect:/login";
-        }
-
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
-        String email = userDetails != null ? userDetails.getUser().getEmail() : null;
-
-        model.addAttribute("email", email);
+        model.addAttribute("email", userDetails.getUser().getEmail());
 
         return "profile";
 

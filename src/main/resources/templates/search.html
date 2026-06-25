@@ -20,6 +20,7 @@
       <a th:href="@{/movies/{slug}(slug=${movie.slug})}">
         <img
                 th:src="${movie.getPosterUrl()}"
+                loading="lazy"
                 alt="Постер"
         />
       </a>
