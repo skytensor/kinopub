@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -34,7 +34,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id")
     )
-    private List<Movie> watchedMovies = new ArrayList<>();
+    private Set<Movie> watchedMovies = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -42,7 +42,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id")
     )
-    private List<Movie> bookmarks = new ArrayList<>();
+    private Set<Movie> bookmarks = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -92,19 +92,12 @@ public class User {
         this.ratings = ratings;
     }
 
-    public List<Movie> getWatchedMovies() {
+    public Set<Movie> getWatchedMovies() {
         return watchedMovies;
     }
 
-    public void setWatchedMovies(List<Movie> watchedMovies) {
-        this.watchedMovies = watchedMovies;
-    }
-
-    public List<Movie> getBookmarks() {
+    public Set<Movie> getBookmarks() {
         return bookmarks;
     }
 
-    public void setBookmarks(List<Movie> bookmarks) {
-        this.bookmarks = bookmarks;
-    }
 }

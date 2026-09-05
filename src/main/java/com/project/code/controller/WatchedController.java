@@ -32,7 +32,7 @@ public class WatchedController {
         User user = userRepository.findById(userDetails.getUser().getId()).orElseThrow();
         Movie movie = movieRepository.findById(movieId).orElseThrow();
 
-        user.getWatchedMovies().addFirst(movie);
+        user.getWatchedMovies().add(movie);
         userRepository.save(user);
 
         return "redirect:/movies/" + movie.getSlug();

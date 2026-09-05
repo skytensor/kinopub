@@ -241,6 +241,7 @@ body {
 
 .movie-left img {
     width: 250px;
+    height: auto;
     border-radius: 16px;
 }
 

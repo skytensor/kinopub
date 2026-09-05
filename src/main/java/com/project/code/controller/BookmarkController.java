@@ -36,7 +36,7 @@ public class BookmarkController {
         User user = userRepository.findById(userDetails.getUser().getId()).orElseThrow();
         Movie movie = movieRepository.findById(movieId).orElseThrow();
 
-        user.getBookmarks().addFirst(movie);
+        user.getBookmarks().add(movie);
         userRepository.save(user);
 
         return "redirect:/movies/" + movie.getSlug();

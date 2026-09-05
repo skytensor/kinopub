@@ -7,8 +7,6 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Movie {
