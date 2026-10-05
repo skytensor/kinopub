@@ -9,22 +9,28 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project</groupId>
-	<artifactId>code</artifactId>
+	<artifactId>kinopub</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
+	<name>KINOPUB</name>
+	<description>Movie catalog web application built with Spring Boot, Spring Security and MySQL</description>
+	<url>https://github.com/skytensor/kinopub</url>
 	<licenses>
-		<license/>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<name>Asset Tashmakhambet</name>
+			<email>tashmakhambetasset@gmail.com</email>
+			<url>https://github.com/skytensor</url>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:https://github.com/skytensor/kinopub.git</connection>
+		<developerConnection>scm:git:https://github.com/skytensor/kinopub.git</developerConnection>
+		<url>https://github.com/skytensor/kinopub</url>
 	</scm>
 	<properties>
 		<java.version>21</java.version>
