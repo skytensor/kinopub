@@ -13,19 +13,21 @@
 <body>
 <div th:replace="~{fragments/topbar :: topbar}"></div>
 
-<div class="hero" th:style="|background-image: url('${movie.getBackdropUrl()}');|">
+<div class="hero" th:style="|background-image: url('${movie.getBackdropMedium()}');|">
     <div class="hero-bg"></div>
     <div class="overlay"></div>
 
     <div class="content">
         <img
                 class="poster"
-                th:src="${movie.getPosterUrl()}"
+                th:src="${movie.getPosterMedium()}"
                 alt="Постер"
+                fetchpriority="high"
+                decoding="async"
         />
 
         <div class="movie-info">
-            <h1 th:text="${movie.getTitle()} + ' (' + ${movie.getYear()} + ')'">Интерстеллар (2014)</h1>
+            <h1 th:text="${movie.getTitle()} + ' (' + ${movie.getYear()} + ')'"></h1>
             <p th:text="${movie.getDescription()}"></p>
             <div class="movie-info-buttons">
                 <form method="post" th:action="@{/movies/watch/{id}(id=${movie.id})}">
@@ -45,8 +47,10 @@
 <div class="movie-fullinfo">
     <div class="movie-left">
         <img
-                th:src="${movie.getTrailerUrl()}"
+                th:src="${movie.getTrailerThumb()}"
                 alt="Трейлер"
+                loading="lazy"
+                decoding="async"
         />
     </div>
 

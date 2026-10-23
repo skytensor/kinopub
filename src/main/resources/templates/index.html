@@ -15,8 +15,10 @@
     <div th:each="movie : ${movies}" class="movie_card">
       <a th:href="@{/movies/{slug}(slug=${movie.slug})}">
         <img
-                th:src="${movie.getPosterUrl()}"
+                th:src="${movie.getPosterThumb()}"
                 alt="Постер"
+                loading="lazy"
+                decoding="async"
         />
       </a>
 

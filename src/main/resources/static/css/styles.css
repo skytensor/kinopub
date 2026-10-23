@@ -1,6 +1,7 @@
 @font-face {
     font-family: "GoogleSans";
-    src: url('../fonts/GoogleSans.ttf');
+    src: url('../fonts/GoogleSans.woff2') format('woff2');
+    font-display: swap;
 }
 
 body {

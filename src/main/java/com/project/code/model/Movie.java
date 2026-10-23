@@ -281,4 +281,28 @@ public class Movie {
     public void setTrailerUrl(String trailerUrl) {
         this.trailerUrl = trailerUrl;
     }
+
+    public String resize(String url, String size) {
+        if (url == null || !url.endsWith("/orig")) {
+            return url;
+        }
+
+        return url.substring(0, url.length() - "orig".length()) + size;
+    }
+
+    public String getPosterThumb() {
+        return resize(posterUrl, "300x450");
+    }
+
+    public String getPosterMedium() {
+        return resize(posterUrl, "600x900");
+    }
+
+    public String getBackdropMedium() {
+        return resize(backdropUrl, "1280x720");
+    }
+
+    public String getTrailerThumb() {
+        return resize(trailerUrl, "600x");
+    }
 }
