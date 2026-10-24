@@ -14,6 +14,7 @@
   <h1 th:if="${query != null}">
     Результаты поиска: <span th:text="${query}"></span>
   </h1>
+  <p th:if="${#lists.isEmpty(movies)}">Ничего не найдено</p>
 
   <div class="movie_cards">
     <div th:each="movie : ${movies}" class="movie_card">
@@ -27,21 +28,19 @@
 
       <div class="movie_info">
         <h3 class="card_title" th:text="${movie.getTitle()}"></h3>
-        <p class="card_description" th:text="${movie.getYear()} + ' • ' + ${movie.getGenre()}"></p>
+        <p class="card_description" th:text="${movie.getYear()} + ' • ' + ${movie.getMainGenre()}"></p>
       </div>
     </div>
   </div>
 
-  <div class="pagination">
+  <div class="pagination" th:if="${totalPages > 1}">
 
     <a th:if="${currentPage > 0}"
        th:href="@{/search(page=${currentPage - 1}, query=${query})}">
-            <span class="material-symbols-outlined">
-                arrow_back
-            </span>
+      <span class="material-symbols-outlined">arrow_back</span>
     </a>
 
-    <a th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+    <a th:each="i : ${#numbers.sequence(startPage, endPage)}"
        th:href="@{/search(page=${i}, query=${query})}"
        th:text="${i + 1}"
        th:classappend="${i == currentPage} ? 'active'">
@@ -49,9 +48,7 @@
 
     <a th:if="${currentPage < totalPages - 1}"
        th:href="@{/search(page=${currentPage + 1}, query=${query})}">
-            <span class="material-symbols-outlined">
-                arrow_forward
-            </span>
+      <span class="material-symbols-outlined">arrow_forward</span>
     </a>
 
   </div>

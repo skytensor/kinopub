@@ -23,6 +23,7 @@
         <input type="password" placeholder="Пароль" name="password" class="login-inputtext" />
         <input type="submit" value="Войти" class="login-button" />
       </form>
+      <p class="form-error" th:if="${param.error}">Неверный логин или пароль</p>
       <a class="register-button" th:href="@{/register}">Cоздать аккаунт</a>
     </div>
   </div>

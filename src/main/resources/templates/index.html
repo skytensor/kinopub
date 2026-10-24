@@ -24,7 +24,7 @@
 
       <div class="movie_info">
         <h3 class="card_title" th:text="${movie.getTitle()}"></h3>
-        <p class="card_description" th:text="${movie.getYear()} + ' • ' + ${movie.getGenre()}"></p>
+        <p class="card_description" th:text="${movie.getYear()} + ' • ' + ${movie.getMainGenre()}"></p>
       </div>
     </div>
   </div>

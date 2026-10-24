@@ -4,12 +4,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
+@Getter
+@Setter
 @Entity
 public class Movie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,16 +23,19 @@ public class Movie {
     @NotBlank(message = "Title cannot be empty or blank")
     private String title;
 
+    @Column(unique = true, nullable = false)
     private String slug;
 
+    @Column(length = 2000)
     private String description;
 
-    // URL
-    @NotBlank(message = "PosterURL cannot be empty or blank")
+    @Column(length = 1000)
     private String posterUrl;
 
+    @Column(length = 1000)
     private String backdropUrl;
 
+    @Column(length = 1000)
     private String trailerUrl;
 
     @Positive(message = "Year cannot be negative or zero")
@@ -74,135 +82,11 @@ public class Movie {
     @Positive(message = "Runtime cannot be negative or zero")
     private int runtime;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSlug() {
-        return slug;
-    }
-
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public String getTagline() {
-        return tagline;
-    }
-
     public String getFormattedTagline() {
         if (tagline == null || tagline.isBlank()) {
             return "—";
         }
         return "«" + tagline + "»";
-    }
-
-    public void setTagline(String tagline) {
-        this.tagline = tagline;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public String getScreenplay() {
-        return screenplay;
-    }
-
-    public void setScreenplay(String screenplay) {
-        this.screenplay = screenplay;
-    }
-
-    public String getProducer() {
-        return producer;
-    }
-
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
-
-    public String getCinematographer() {
-        return cinematographer;
-    }
-
-    public void setCinematographer(String cinematographer) {
-        this.cinematographer = cinematographer;
-    }
-
-    public String getComposer() {
-        return composer;
-    }
-
-    public void setComposer(String composer) {
-        this.composer = composer;
-    }
-
-    public String getProductionDesigner() {
-        return productionDesigner;
-    }
-
-    public void setProductionDesigner(String productionDesigner) {
-        this.productionDesigner = productionDesigner;
-    }
-
-    public String getEditor() {
-        return editor;
-    }
-
-    public void setEditor(String editor) {
-        this.editor = editor;
-    }
-
-    public long getBudget() {
-        return budget;
     }
 
     public String getFormattedBudget() {
@@ -214,14 +98,6 @@ public class Movie {
         return formatter.format(budget);
     }
 
-    public void setBudget(long budget) {
-        this.budget = budget;
-    }
-
-    public long getUsaBoxOffice() {
-        return usaBoxOffice;
-    }
-
     public String getFormattedUsaBoxOffice() {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         symbols.setGroupingSeparator(' ');
@@ -231,55 +107,11 @@ public class Movie {
         return formatter.format(usaBoxOffice);
     }
 
-    public void setUsaBoxOffice(long usaBoxOffice) {
-        this.usaBoxOffice = usaBoxOffice;
-    }
-
-    public String getAgeRating() {
-        return ageRating;
-    }
-
-    public void setAgeRating(String rating) {
-        this.ageRating = rating;
-    }
-
-    public int getRuntime() {
-        return runtime;
-    }
-
     public String getFormattedRuntime() {
         int hours = runtime / 60;
         int minutes = runtime % 60;
 
         return hours + " ч " + minutes + " мин";
-    }
-
-    public void setRuntime(int runtime) {
-        this.runtime = runtime;
-    }
-
-    public String getPosterUrl() {
-        return posterUrl;
-    }
-
-    public void setPosterUrl(String posterUrl) {
-        this.posterUrl = posterUrl;
-    }
-
-    public String getBackdropUrl() {
-        return backdropUrl;
-    }
-
-    public void setBackdropUrl(String backdropUrl) {
-        this.backdropUrl = backdropUrl;
-    }
-
-    public String getTrailerUrl() {
-        return trailerUrl;
-    }
-
-    public void setTrailerUrl(String trailerUrl) {
-        this.trailerUrl = trailerUrl;
     }
 
     public String resize(String url, String size) {
@@ -304,5 +136,23 @@ public class Movie {
 
     public String getTrailerThumb() {
         return resize(trailerUrl, "600x");
+    }
+
+    public String getMainGenre() {
+        String[] genres = genre.split(", ");
+
+        return genres[0];
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Movie other)) return false;
+        return id != null && id.equals(other.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Movie.class.hashCode();
     }
 }

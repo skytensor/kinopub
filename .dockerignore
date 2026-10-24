@@ -1,0 +1,12 @@
+.git
+.gitignore
+.gitattributes
+.idea
+.vscode
+*.iml
+.DS_Store
+**/.DS_Store
+__MACOSX
+target
+docs
+*.md

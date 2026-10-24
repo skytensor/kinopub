@@ -3,10 +3,14 @@ package com.project.code.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
 @Entity
 public class User {
 
@@ -43,61 +47,5 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "movie_id")
     )
     private Set<Movie> bookmarks = new HashSet<>();
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public int getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(int ratings) {
-        this.ratings = ratings;
-    }
-
-    public Set<Movie> getWatchedMovies() {
-        return watchedMovies;
-    }
-
-    public Set<Movie> getBookmarks() {
-        return bookmarks;
-    }
 
 }

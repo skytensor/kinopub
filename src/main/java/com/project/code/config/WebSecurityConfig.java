@@ -2,6 +2,7 @@ package com.project.code.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,12 +21,27 @@ public class WebSecurityConfig {
 
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/css/**", "/js/**").permitAll()
-                        .requestMatchers("/profile").authenticated()
-                        .requestMatchers("/movies/watch/**").authenticated()
-                        .requestMatchers("/bookmark/**").authenticated()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().permitAll()
+                        // статика
+                        .requestMatchers("/css/**", "/js/**", "/fonts/**", "/images/**", "/favicon.ico").permitAll()
+                        .requestMatchers("/error").permitAll()
+
+                        // публичные страницы
+                        .requestMatchers(HttpMethod.GET, "/", "/search", "/movies").permitAll()
+                        .requestMatchers("/login", "/register").permitAll()
+
+                        // только для вошедших (должно стоять ДО общего /movies/*)
+                        .requestMatchers("/profile", "/movies/watch/**", "/bookmark/**").authenticated()
+
+                        // карточка фильма
+                        .requestMatchers(HttpMethod.GET, "/movies/*").permitAll()
+
+                        // админка и API
+                        .requestMatchers("/admin/**", "/api/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.HEAD, "/", "/search", "/movies", "/movies/*").permitAll()
+
+                        // всё остальное закрыто
+                        .anyRequest().denyAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")

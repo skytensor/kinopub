@@ -1,41 +1,30 @@
 package com.project.code.dto;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class RegisterForm {
 
-    @Size(min = 4, max = 10)
+    @NotBlank(message = "Введите логин")
+    @Pattern(regexp = "^[A-Za-z0-9_]+$", message = "Логин: латиница, цифры и _")
+    @Size(min = 4, max = 10, message = "Логин: от 4 до 10 символов")
     private String login;
 
-    @Email
+    @NotBlank(message = "Введите почту")
+    @Email(message = "Некорректная почта")
     private String email;
 
-    @Pattern(regexp = "^[a-zA-Z0-9]{8,20}$", message = "Password must be alphanumeric and 8-20 characters long")
+    @NotBlank(message = "Введите пароль")
+    @Size(min = 8, max = 64, message = "Пароль: от 8 до 64 символов")
     private String password;
 
-    public String getLogin() {
-        return login;
-    }
+    @NotBlank(message = "Повторите пароль")
+    private String confirmPassword;
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

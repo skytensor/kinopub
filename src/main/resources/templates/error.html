@@ -1,14 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Error</title>
+  <title>Ошибка</title>
   <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
 <div class="error">
-  <h1 class="error-h1">Не удалось найти страницу</h1>
+  <h1 class="error-h1" th:switch="${status}">
+    <span th:case="404">Страница не найдена</span>
+    <span th:case="403">Доступ запрещён</span>
+    <span th:case="400">Некорректный запрос</span>
+    <span th:case="*">Что-то пошло не так</span>
+  </h1>
+  <a th:href="@{/}" class="login-link">На главную</a>
 </div>
 </body>
 </html>

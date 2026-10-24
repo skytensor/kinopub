@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--/*@thymesVar id="movieForm" type="com.project.code.dto.MovieForm"*/-->
+<table>
+  <tbody th:fragment="fields" th:object="${movieForm}">
+  <tr><td>Название</td><td><input type="text" th:field="*{title}"/><span class="form-error" th:errors="*{title}"></span></td></tr>
+  <tr><td>Slug</td><td><input type="text" th:field="*{slug}"/><span class="form-error" th:errors="*{slug}"></span></td></tr>
+  <tr><td>Описание</td><td><textarea rows="4" th:field="*{description}"></textarea><span class="form-error" th:errors="*{description}"></span></td></tr>
+  <tr><td>Постер URL</td><td><input type="text" th:field="*{posterUrl}"/><span class="form-error" th:errors="*{posterUrl}"></span></td></tr>
+  <tr><td>Фон URL</td><td><input type="text" th:field="*{backdropUrl}"/><span class="form-error" th:errors="*{backdropUrl}"></span></td></tr>
+  <tr><td>Трейлер URL</td><td><input type="text" th:field="*{trailerUrl}"/><span class="form-error" th:errors="*{trailerUrl}"></span></td></tr>
+  <tr><td>Год</td><td><input type="number" th:field="*{year}"/><span class="form-error" th:errors="*{year}"></span></td></tr>
+  <tr><td>Страна</td><td><input type="text" th:field="*{country}"/><span class="form-error" th:errors="*{country}"></span></td></tr>
+  <tr><td>Жанр</td><td><input type="text" th:field="*{genre}"/><span class="form-error" th:errors="*{genre}"></span></td></tr>
+  <tr><td>Слоган</td><td><input type="text" th:field="*{tagline}"/><span class="form-error" th:errors="*{tagline}"></span></td></tr>
+  <tr><td>Режиссер</td><td><input type="text" th:field="*{director}"/><span class="form-error" th:errors="*{director}"></span></td></tr>
+  <tr><td>Сценарий</td><td><input type="text" th:field="*{screenplay}"/><span class="form-error" th:errors="*{screenplay}"></span></td></tr>
+  <tr><td>Продюсер</td><td><input type="text" th:field="*{producer}"/><span class="form-error" th:errors="*{producer}"></span></td></tr>
+  <tr><td>Оператор</td><td><input type="text" th:field="*{cinematographer}"/><span class="form-error" th:errors="*{cinematographer}"></span></td></tr>
+  <tr><td>Композитор</td><td><input type="text" th:field="*{composer}"/><span class="form-error" th:errors="*{composer}"></span></td></tr>
+  <tr><td>Художник</td><td><input type="text" th:field="*{productionDesigner}"/><span class="form-error" th:errors="*{productionDesigner}"></span></td></tr>
+  <tr><td>Монтаж</td><td><input type="text" th:field="*{editor}"/><span class="form-error" th:errors="*{editor}"></span></td></tr>
+  <tr><td>Бюджет ($)</td><td><input type="number" th:field="*{budget}"/><span class="form-error" th:errors="*{budget}"></span></td></tr>
+  <tr><td>Сборы в США ($)</td><td><input type="number" th:field="*{usaBoxOffice}"/><span class="form-error" th:errors="*{usaBoxOffice}"></span></td></tr>
+  <tr><td>Возраст</td><td><input type="text" th:field="*{ageRating}"/><span class="form-error" th:errors="*{ageRating}"></span></td></tr>
+  <tr><td>Время (мин)</td><td><input type="number" th:field="*{runtime}"/><span class="form-error" th:errors="*{runtime}"></span></td></tr>
+  </tbody>
+</table>
+</body>
+</html>
